@@ -3,87 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Create new listing</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-maxlength/1.10.0/bootstrap-maxlength.min.js" integrity="sha512-04L+TAgzlDAaUpaEGriEBg/qEryUjw4GNL/FkxA3h621EFPycccO2Y8vNhvid9UhgGC/9+MHLAFwGythpvOAAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="/index.html">House World</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" href="/index.html">Buy / Rent</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+                <a class="nav-link" href="/new_listing.html">Sell</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
+                <a class="nav-link" href="/saved.html">Saved Listings</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <a href="/login.html">
+                <button class="btn btn-secondary">Log In</button>
+            </a>
           </div>
         </div>
     </nav>
 
     <h1>Create New Listing</h1>
     <br/>
-    <form>
+    <form id="listingForm" novalidate>
         <h3>Listing Details</h3>
         <div class="mb-3">
-            <label for="address">Address</label>
-            <input id="address" type="text" class="form-control" placeholder="Property Address"/>
+            <label for="address">Address &nbsp;<strong>*</strong>&nbsp;</label>
+            <input name="address" id="address" type="text" class="form-control" placeholder="Property Address" aria-describedby="invalidAddress" required/>
+            <div id="invalidAddress" class="invalid-feedback">
+                Please enter the property address.
+            </div>
         </div>
         <div class="row mb-3">
             <div class="col">
-                <label for="city">City</label>
-                <input id="city" type="text" class="form-control" placeholder="City"/>
+                <label for="city">City &nbsp;<strong>*</strong>&nbsp;</label>
+                <input name="city" id="city" type="text" class="form-control" placeholder="City" aria-describedby="invalidCity" required/>
+                <div id="invalidCity" class="invalid-feedback">
+                    Please enter a city.
+                </div>
             </div>
             <div class="col">
-                <label for="province">Province</label>
-                <select id="province" class="form-select">
-                    <option selected>Choose...</option>
-                    <option>Alberta</option>
-                    <option>British Columbia</option>
-                    <option>Manitoba</option>
-                    <option>New Brunswick</option>
-                    <option>Newfoundland and Labrador</option>
-                    <option>Northwest Territories</option>
-                    <option>Nova Scotia</option>
-                    <option>Nunavut</option>
-                    <option>Ontario</option>
-                    <option>Prince Edward Island</option>
-                    <option>Quebec</option>
-                    <option>Saskatchewan</option>
-                    <option>Yukon</option>
+                <label for="province">Province &nbsp;<strong>*</strong>&nbsp;</label>
+                <select name="province" id="province" class="form-select" aria-describedby="invalidProvince" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="AB">Alberta</option>
+                    <option value="BC">British Columbia</option>
+                    <option value="MB">Manitoba</option>
+                    <option value="NB">New Brunswick</option>
+                    <option value="NL">Newfoundland and Labrador</option>
+                    <option value="NT">Northwest Territories</option>
+                    <option value="NS">Nova Scotia</option>
+                    <option value="NU">Nunavut</option>
+                    <option value="ON">Ontario</option>
+                    <option value="PE">Prince Edward Island</option>
+                    <option value="QC">Quebec</option>
+                    <option value="SK">Saskatchewan</option>
+                    <option value="YT">Yukon</option>
                 </select>
+                <div id="invalidProvince" class="invalid-feedback">
+                    Please select a valid province.
+                </div>
             </div>
         </div>
         <div class="row mb-3">
             <div class="col">
-                <label for="price">Price &lpar;CAD$&rpar;</label>
+                <label for="price">Price &nbsp;<strong>*</strong>&nbsp;</label>
                 <div class="input-group">
-                    <span class="input-group-text">$</span>
-                    <input id="price" type="number" min="0" class="form-control" value="0"/>
+                    <span class="input-group-text">CAD$</span>
+                    <input name="price" id="price" type="number" min="0" class="form-control" value="0" aria-describedby="invalidPrice" required/>
+                    <div id="invalidPrice" class="invalid-feedback">
+                        Please enter a valid price.
+                    </div>
                 </div>
             </div>
             <div class="col">
@@ -101,35 +103,93 @@
         <h3>Property Details</h3>
         <div class="row mb-3">
             <div class="col">
-                <label for="area">Area</label>
+                <label for="area">Area &nbsp;<strong>*</strong>&nbsp;</label>
                 <div class="input-group">
-                    <input id="area" type="number" min="0" class="form-control" value="0" />
+                    <input name="area" id="area" type="number" min="0" class="form-control" value="0" aria-describedby="invalidArea" required/>
                     <select class="form-select" id="areaUnits" aria-label="Units">
                         <option selected>ft&sup2;</option>
                         <option>m&sup2;</option>
                         <option>acres</option>
                     </select>
+                    <div id="invalidArea" class="invalid-feedback">
+                        Please enter a valid area.
+                    </div>
                 </div>
             </div>
             <div class="col">
-                <label for="beds">No. of Bedrooms</label>
-                <input id="beds" type="number" min="0" class="form-control" value="0"/>
+                <label for="beds">No. of Bedrooms &nbsp;<strong>*</strong>&nbsp;</label>
+                <input name="beds" id="beds" type="number" min="0" class="form-control" value="0" aria-describedby="invalidBeds" required/>
+                <div id="invalidBeds" class="invalid-feedback">
+                    Please enter the number of bedrooms in this property.
+                </div>
             </div>
             <div class="col">
-                <label for="baths">No. of Bathrooms</label>
-                <input id="baths" type="number" min="0" class="form-control" value="0"/>
+                <label for="baths">No. of Bathrooms &nbsp;<strong>*</strong>&nbsp;</label>
+                <input name="baths" id="baths" type="number" min="0" class="form-control" value="0" aria-describedby="invalidBaths" required/>
+                <div id="invalidBaths" class="invalid-feedback">
+                    Please enter the number of bathrooms in this property.
+                </div>
             </div>
         </div>
         <div class="mb-3">
-            <label for="features">Features</label>
-            <textarea id="features" class="form-control" rows="5"></textarea>
+            <label for="features">Features &lpar;point form&rpar;</label>
+            <textarea id="features" class="form-control" rows="5" maxlength="500"></textarea>
         </div>
         <div class="mb-3">
-            <label for="description">Description</label>
-            <textarea id="description" class="form-control" rows="10"></textarea>
+            <label for="description">Description &nbsp;<strong>*</strong>&nbsp;</label>
+            <textarea name="description" id="description" class="form-control" rows="10" maxlength="5000" aria-describedby="invalidDesc" required></textarea>
+            <div id="invalidDesc" class="invalid-feedback">
+                Please provide a description for your property.
+            </div>
         </div>
-        <button class="btn btn-secondary">Preview</button>
-        <button class="btn btn-primary" type="submit">Create Listing</button>
+        <button id="submitButton" class="btn btn-primary" disabled>Create Listing</button>
     </form>
+
+    <script>
+        $(document).ready(function() {
+            const $form = $('#listingForm');
+            const $submit = $form.find('#submitButton');
+            const $province = $form.find('#province');
+            const $fields = [
+                $form.find('#address'), $form.find('#city'), $province, $form.find('#price'),
+                $form.find('#area'), $form.find('#beds'), $form.find('#baths'), $form.find('#description')
+            ];
+
+            $form.on('input', function() {
+                const valid = $form[0].checkValidity();
+                $submit.prop('disabled', !valid);
+            });
+
+            $submit.on('click', function() {
+                alert("Listing successfully created!");
+            })
+
+            $fields.forEach((field) => {
+                field.on('blur', function() {
+                    if (!field[0].checkValidity()) {
+                        field.addClass('is-invalid');
+                    } else {
+                        field.removeClass('is-invalid');
+                    }
+                });
+            });
+
+            $province.on('change', function() {
+                if (!$province[0].checkValidity()) {
+                    $province.addClass('is-invalid');
+                } else {
+                    $province.removeClass('is-invalid');
+                }
+            });
+
+            $form.find('#features').maxlength({
+                alwaysShow: true
+            });
+
+            $form.find('#description').maxlength({
+                alwaysShow: true
+            });
+        });
+    </script>
 </body>
 </html>
