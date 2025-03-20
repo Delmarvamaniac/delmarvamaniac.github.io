@@ -38,6 +38,7 @@
             <div class="col-sm-1">
                 <button id="savedStar" class="btn float-end">
                     <i id="star" class="fa fa-star-o" style="font-size: 36px;"></i>
+                    <p id="saveMessage" class="text-muted" style="display: none; font-size: 14px;">Saved Property</p>
                 </button>
             </div>
             <div class="col-sm-3">
@@ -122,11 +123,14 @@
 
         var savedStar = document.getElementById('savedStar');
         var icon = savedStar.querySelector('#star');
+        var saveMessage = document.getElementById('saveMessage');
         savedStar.addEventListener('click', function() {
             if (icon.className == 'fa fa-star-o') {
                 icon.className = 'fa fa-star';
+                saveMessage.style.display = 'block'; // Show message
             } else {
                 icon.className = 'fa fa-star-o';
+                saveMessage.style.display = 'none';
             }
         });
 
