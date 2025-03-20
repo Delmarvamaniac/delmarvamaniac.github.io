@@ -34,17 +34,74 @@
                 </button>
             </div>
         </div>
-        <div class="row mb-3" style="width: 100%;">
-            <div class="col">
-                <button id="savedStar" class="btn">
+        <div class="row mt-3 mb-3 mx-auto" style="width: 100%;">
+            <div class="col-sm-1">
+                <button id="savedStar" class="btn float-end">
                     <i id="star" class="fa fa-star-o" style="font-size: 36px;"></i>
                 </button>
             </div>
-            <div class="col">
-                <p class="fs-1">$XXXXXXX</p>
+            <div class="col-sm-3">
+                <p id="price" class="fs-1 fw-bold">$XXX,XXX</p>
             </div>
-            <div class="col w-auto">
-                <button class="btn btn-primary w-auto">Contact Seller</button>
+            <div class="col-sm-1">
+                <i class="fa fa-bed" style="font-size: 36px;"></i>
+                <p id="beds" class="fs-3 fw-bold" style="display: inline;"></p>
+                <p>Bedrooms</p>
+            </div>
+            <div class="col-sm-1">
+                <i class="fa fa-bath" style="font-size: 36px;"></i>
+                <p id="baths" class="fs-3 fw-bold" style="display: inline;"></p>
+                <p>Bathrooms</p>
+            </div>
+            <div class="col-sm-3">
+                <i class="fa fa-square-o" style="font-size: 36px;"></i>
+                <p id="area" class="fs-3 fw-bold" style="display: inline;"></p>
+                <p>Area</p>
+            </div>
+            <div class="col-sm">
+                <button class="btn btn-primary w-100 float-end">Contact Seller</button>
+            </div>
+        </div>
+        <div class="row mb-5 mx-auto" style="width: 100%;">
+            <div class="col"></div>
+            <div class="col-sm-5">
+                <p id="address" class="fs-3"></p>
+            </div>
+            <div class="col-sm-3">
+                <button class="btn btn-secondary w-100">View Floor Plan</button>
+            </div>
+            <div class="col-sm-3">
+                <button class="btn btn-outline-secondary w-100 float-end">Schedule Tour</button>
+            </div>
+        </div>
+        <div class="row mb-5 mx-auto" style="width: 100%">
+            <div class="col"></div>
+            <div class="col-sm-8">
+                <p id="description" class="fs-6">
+                    Sample Text
+                </p>
+            </div>
+            <div class="col-sm-3">
+                <h3 class="text-center">Features</h3>
+                <p id="features" class="fs-5 fst-italic">Features</p>
+            </div>
+        </div>
+        <div class="row mb-3 mx-auto" style="width: 75%;">
+            <div class="col-sm-3 w-100" style="background-color: darkgrey; border-radius: 10px;">
+                <div class="row mx-auto mt-3 text-center">
+                    <div class="col">
+                        <p>Seller Name</p>
+                        <p class="fs-3">John Doe</p>
+                    </div>
+                    <div class="col">
+                        <p>Seller Email</p>
+                        <p class="fs-3">johndoe@example.com</p>
+                    </div>
+                    <div class="col">
+                        <p>Seller Phone</p>
+                        <p class="fs-3">(123)-456-7890</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -64,8 +121,8 @@
         }
 
         var savedStar = document.getElementById('savedStar');
+        var icon = savedStar.querySelector('#star');
         savedStar.addEventListener('click', function() {
-            var icon = savedStar.querySelector('#star');
             if (icon.className == 'fa fa-star-o') {
                 icon.className = 'fa fa-star';
             } else {
@@ -82,10 +139,22 @@
                 const address = house.address + ", " + house.city + ", " + house.province;
                 const beds = house.beds;
                 const baths = house.baths;
-                const area = house.area + " " + house.areaUnits;
+                const area = house.area + "&nbsp;" + house.areaUnits;
                 const saved = house.saved;
+                const description = house.description;
+                const features = house.features;
+
+                icon.className = saved ? 'fa fa-star' : 'fa fa-star-o';
 
                 document.getElementById('firstImage').setAttribute('src', thumbnail);
+                document.getElementById('price').innerText = "$" + price;
+                document.getElementById('beds').innerHTML = "&nbsp;" + beds;
+                document.getElementById('baths').innerHTML = "&nbsp;" + baths;
+                document.getElementById('area').innerHTML = "&nbsp;" + area;
+                document.getElementById('address').innerText = address;
+
+                document.getElementById('description').innerText = description;
+                document.getElementById('features').innerText = features;
             });
     </script>
 </body>
