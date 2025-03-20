@@ -82,7 +82,7 @@
         <div class="row mb-3">
             <div class="col">
                 <label for="listingImages">Upload image&lpar;s&rpar; of property &nbsp;<strong>*</strong>&nbsp;</label>
-                <input class="form-control" type="file" id="listingImages" aria-describedby="invalidImage" multiple required />
+                <input class="form-control is-invalid" type="file" id="listingImages" aria-describedby="invalidImage" accept="image/*" multiple required />
                 <div id="invalidImage" class="invalid-feedback">
                     Please upload at least one image.
                 </div>
@@ -96,7 +96,7 @@
             <div class="col">
                 <label for="area">Area &nbsp;<strong>*</strong>&nbsp;</label>
                 <div class="input-group">
-                    <input name="area" id="area" type="text" class="form-control" value="0" aria-describedby="invalidArea" required/>
+                    <input name="area" id="area" type="text" class="form-control" value="0" aria-describedby="invalidArea" accept="image/*" required/>
                     <select class="form-select" id="areaUnits" aria-label="Units">
                         <option selected>ft&sup2;</option>
                         <option>m&sup2;</option>
@@ -159,6 +159,7 @@
             const $form = $('#listingForm');
             const $submit = $form.find('#submitButton');
             const $province = $form.find('#province');
+            const $imagePicker = $form.find('#listingImages');
             const $fields = [
                 $form.find('#address'), $form.find('#city'), $province, $form.find('#price'),
                 $form.find('#area'), $form.find('#beds'), $form.find('#baths'), $form.find('#description')
@@ -188,6 +189,14 @@
                     $province.addClass('is-invalid');
                 } else {
                     $province.removeClass('is-invalid');
+                }
+            });
+
+            $imagePicker.on('change', function() {
+                if (!$imagePicker[0].checkValidity()) {
+                    $imagePicker.addClass('is-invalid');
+                } else {
+                    $imagePicker.removeClass('is-invalid');
                 }
             });
 
