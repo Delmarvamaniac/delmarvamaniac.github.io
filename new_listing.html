@@ -81,6 +81,19 @@
         <h3>Property Details</h3>
         <div class="row mb-3">
             <div class="col">
+                <label for="listingImages">Upload image&lpar;s&rpar; of property &nbsp;<strong>*</strong>&nbsp;</label>
+                <input class="form-control" type="file" id="listingImages" aria-describedby="invalidImage" multiple required />
+                <div id="invalidImage" class="invalid-feedback">
+                    Please upload at least one image.
+                </div>
+            </div>
+            <div class="col">
+                <label for="listingImages">Upload floor plan&lpar;s&rpar; of property</label>
+                <input class="form-control" type="file" id="listingFloorPlan" multiple />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
                 <label for="area">Area &nbsp;<strong>*</strong>&nbsp;</label>
                 <div class="input-group">
                     <input name="area" id="area" type="text" class="form-control" value="0" aria-describedby="invalidArea" required/>

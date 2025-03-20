@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script src="nav-load.js"></script>
+
+    <div id="listingContainer" style="width: 100%;">
+        <div style="background-color: rgb(58, 58, 58);">
+            <div id="carousel" class="carousel slide w-50 mx-auto" data-bs-slide="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img id="firstImage" src="/images/placeholderproperty.jpg" class="d-block w-100" alt="Property Image 1">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="/images/image2.jpg" class="d-block w-100" alt="Property Image 2">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="/images/image3.jpg" class="d-block w-100" alt="Property Image 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="row mb-3" style="width: 100%;">
+            <div class="col">
+                <button id="savedStar" class="btn">
+                    <i id="star" class="fa fa-star-o" style="font-size: 36px;"></i>
+                </button>
+            </div>
+            <div class="col">
+                <p class="fs-1">$XXXXXXX</p>
+            </div>
+            <div class="col w-auto">
+                <button class="btn btn-primary w-auto">Contact Seller</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load house data -->
+    <script>
+        const url = new URL(window.location.href);
+        const searchParams = new URLSearchParams(url.search);
+        var listingContainer = document.getElementById('listingContainer');
+        const id = parseInt(searchParams.get('id'));
+
+        if (isNaN(id) || id < 0 || id > 2) {
+            listingContainer.hidden = true;
+            var h = document.createElement('h2');
+            h.innerText = "Property not found!"
+            document.body.appendChild(h);
+        }
+
+        var savedStar = document.getElementById('savedStar');
+        savedStar.addEventListener('click', function() {
+            var icon = savedStar.querySelector('#star');
+            if (icon.className == 'fa fa-star-o') {
+                icon.className = 'fa fa-star';
+            } else {
+                icon.className = 'fa fa-star-o';
+            }
+        });
+
+        fetch('houses.json')
+            .then((response) => response.json())
+            .then((json) => {
+                const house = json.houses[id];
+                const thumbnail = "/images/" + house.thumbnail;
+                const price = house.price.toLocaleString();
+                const address = house.address + ", " + house.city + ", " + house.province;
+                const beds = house.beds;
+                const baths = house.baths;
+                const area = house.area + " " + house.areaUnits;
+                const saved = house.saved;
+
+                document.getElementById('firstImage').setAttribute('src', thumbnail);
+            });
+    </script>
+</body>
+</html>
