@@ -10,9 +10,10 @@
 </head>
 <body>
   <script src="nav-load.js"></script>
+  <center class="mb-3 mt-3">
+    <h1>Login</h1>
+  </center>
   <div class="mx-auto" style="width: 50%;">
-    <center><h1>Login</h1></center>
-    <br/>
     <form id="loginForm" novalidate>
       <div class="mx-auto mb-3">
         <label for="email">Email</label>
@@ -28,18 +29,61 @@
           Please enter a password.
         </div>
       </div>
-      <button id="login" class="btn btn-primary" disabled>Login</button>
+      <div class="clearfix">
+        <a class="btn btn-link link-secondary" href="#" data-bs-toggle="modal" data-bs-target="#forgotModal">Forgot Password?</a>
+        <button id="login" class="btn btn-primary float-end" type="button" onclick="window.location.href='/index.html';" disabled>Login</button>
+      </div>
     </form>
+
+    <div class="mt-5 text-center">
+      <p>
+        New to House World? <a href="/create-account.html">Create an Account</a>
+      </p>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotModal" tabindex="-1" aria-labelledby="forgotModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="forgotForm" novalidate>
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="forgotModalLabel">Forgot Password?</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div id="submitAlert"></div>
+              <p>Enter your email and we'll send you a link to reset your password.</p>
+              <input name="forgotEmail" id="forgotEmail" type="email" class="form-control" placeholder="email@example.org" aria-describedby="invalidForgotEmail" required />
+              <div id="invalidForgotEmail" class="invalid-feedback">
+                Please enter an email.
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="forgotPasswordButton" disabled>Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
   <script>
     $(document).ready(function() {
       const $form = $('#loginForm');
       const $login = $form.find('#login');
-      const $fields = [$form.find('#email'), $form.find('#password')];
+      const $forgotButton = $('#forgotPasswordButton');
+      const $submitAlert = $('#submitAlert');
+      const $forgotForm = $('#forgotForm');
+      const $fields = [$form.find('#email'), $form.find('#password'), $forgotForm.find('#forgotEmail')];
 
       $form.on('input', function() {
         const valid = $form[0].checkValidity();
         $login.prop('disabled', !valid);
+      });
+
+      $forgotForm.on('input', function() {
+        const valid = $forgotForm[0].checkValidity();
+        $forgotButton.prop('disabled', !valid);
       });
 
       $fields.forEach((field) => {
@@ -51,7 +95,25 @@
           }
         });
       });
-    })
+
+      $login.on('click', function() {
+        window.location.href = "/index.html";
+      });
+
+      if ($forgotButton) {
+        $forgotButton.on('click', function() {
+          // create an alert to show success when submitting in forgot password modal
+          if ($submitAlert.html().trim() === "") {  // only make a new alert if there is no alert present
+            const alert = `
+              <div class="alert alert-success" role="alert">
+                Success! A link to reset your password has been sent.
+              </div>
+            `;
+            $submitAlert.html(alert);
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>

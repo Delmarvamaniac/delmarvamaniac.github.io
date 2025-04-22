@@ -1,5 +1,5 @@
 var nav = document.createElement("nav");
-nav.className = "navbar navbar-expand-lg navbar-dark bg-dark";
+nav.className = "navbar sticky-top navbar-expand-lg navbar-dark bg-dark";
 nav.innerHTML = `
 <div class="container">
     <a class="navbar-brand" href="/index.html">House World</a>

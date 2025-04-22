@@ -12,129 +12,146 @@
 <body>
     <script src="nav-load.js"></script>
 
-    <h1>Create New Listing</h1>
-    <br/>
-    <form id="listingForm" novalidate>
-        <h3>Listing Details</h3>
-        <div class="mb-3">
-            <label for="address">Address &nbsp;<strong>*</strong>&nbsp;</label>
-            <input name="address" id="address" type="text" class="form-control" placeholder="Property Address" aria-describedby="invalidAddress" required/>
-            <div id="invalidAddress" class="invalid-feedback">
-                Please enter the property address.
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col">
-                <label for="city">City &nbsp;<strong>*</strong>&nbsp;</label>
-                <input name="city" id="city" type="text" class="form-control" placeholder="City" aria-describedby="invalidCity" required/>
-                <div id="invalidCity" class="invalid-feedback">
-                    Please enter a city.
-                </div>
-            </div>
-            <div class="col">
-                <label for="province">Province &nbsp;<strong>*</strong>&nbsp;</label>
-                <select name="province" id="province" class="form-select" aria-describedby="invalidProvince" required>
-                    <option selected disabled value="">Choose...</option>
-                    <option value="AB">Alberta</option>
-                    <option value="BC">British Columbia</option>
-                    <option value="MB">Manitoba</option>
-                    <option value="NB">New Brunswick</option>
-                    <option value="NL">Newfoundland and Labrador</option>
-                    <option value="NT">Northwest Territories</option>
-                    <option value="NS">Nova Scotia</option>
-                    <option value="NU">Nunavut</option>
-                    <option value="ON">Ontario</option>
-                    <option value="PE">Prince Edward Island</option>
-                    <option value="QC">Quebec</option>
-                    <option value="SK">Saskatchewan</option>
-                    <option value="YT">Yukon</option>
-                </select>
-                <div id="invalidProvince" class="invalid-feedback">
-                    Please select a valid province.
-                </div>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col">
-                <label for="price">Price &nbsp;<strong>*</strong>&nbsp;</label>
-                <div class="input-group">
-                    <span class="input-group-text">CAD$</span>
-                    <input name="price" id="price" type="text" class="form-control" value="0" aria-describedby="invalidPrice" required />
-                    <div id="invalidPrice" class="invalid-feedback">
-                        Please enter a valid price.
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="saleType" id="forSale" checked />
-                    <label class="form-check-label" for="forSale">For Sale</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="saleType" id="forRent" />
-                    <label class="form-check-label" for="forSale">For Rent &lpar;per month&rpar;</label>
-                </div>
-            </div>
-        </div>
+    <center class="mb-3 mt-3">
+        <h1>Create a Listing</h1>
+    </center>
 
-        <br/>
-        <h3>Property Details</h3>
-        <div class="row mb-3">
-            <div class="col">
-                <label for="listingImages">Upload image&lpar;s&rpar; of property &nbsp;<strong>*</strong>&nbsp;</label>
-                <input class="form-control is-invalid" type="file" id="listingImages" aria-describedby="invalidImage" accept="image/*" multiple required />
-                <div id="invalidImage" class="invalid-feedback">
-                    Please upload at least one image.
+    <div class="m-5">
+        <form id="listingForm" novalidate>
+            <h3>Listing Details</h3>
+            <div class="mb-3">
+                <!-- Address -->
+                <label for="address">Address &nbsp;<strong>*</strong>&nbsp;</label>
+                <input name="address" id="address" type="text" class="form-control" placeholder="Property Address" aria-describedby="invalidAddress" required/>
+                <div id="invalidAddress" class="invalid-feedback">
+                    Please enter the property address.
                 </div>
             </div>
-            <div class="col">
-                <label for="listingImages">Upload floor plan&lpar;s&rpar; of property</label>
-                <input class="form-control" type="file" id="listingFloorPlan" multiple />
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col">
-                <label for="area">Area &nbsp;<strong>*</strong>&nbsp;</label>
-                <div class="input-group">
-                    <input name="area" id="area" type="text" class="form-control" value="0" aria-describedby="invalidArea" accept="image/*" required/>
-                    <select class="form-select" id="areaUnits" aria-label="Units">
-                        <option selected>ft&sup2;</option>
-                        <option>m&sup2;</option>
-                        <option>acres</option>
+            <div class="row mb-3">
+                <div class="col">
+                    <!-- City -->
+                    <label for="city">City &nbsp;<strong>*</strong>&nbsp;</label>
+                    <input name="city" id="city" type="text" class="form-control" placeholder="City" aria-describedby="invalidCity" required/>
+                    <div id="invalidCity" class="invalid-feedback">
+                        Please enter a city.
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- Province -->
+                    <label for="province">Province &nbsp;<strong>*</strong>&nbsp;</label>
+                    <select name="province" id="province" class="form-select" aria-describedby="invalidProvince" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option value="AB">Alberta</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NL">Newfoundland and Labrador</option>
+                        <option value="NT">Northwest Territories</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="NU">Nunavut</option>
+                        <option value="ON">Ontario</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="QC">Quebec</option>
+                        <option value="SK">Saskatchewan</option>
+                        <option value="YT">Yukon</option>
                     </select>
-                    <div id="invalidArea" class="invalid-feedback">
-                        Please enter a valid area.
+                    <div id="invalidProvince" class="invalid-feedback">
+                        Please select a valid province.
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <label for="beds">No. of Bedrooms &nbsp;<strong>*</strong>&nbsp;</label>
-                <input name="beds" id="beds" type="text" class="form-control" value="1" aria-describedby="invalidBeds" required/>
-                <div id="invalidBeds" class="invalid-feedback">
-                    Please enter the number of bedrooms in this property.
+            <div class="row mb-3">
+                <div class="col">
+                    <!-- Price -->
+                    <label for="price">Price &nbsp;<strong>*</strong>&nbsp;</label>
+                    <div class="input-group">
+                        <span class="input-group-text">CAD$</span>
+                        <input name="price" id="price" type="text" class="form-control" value="0" aria-describedby="invalidPrice" required />
+                        <div id="invalidPrice" class="invalid-feedback">
+                            Please enter a valid price.
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- For Sale or For Rent -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="saleType" id="forSale" checked />
+                        <label class="form-check-label" for="forSale">For Sale</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="saleType" id="forRent" />
+                        <label class="form-check-label" for="forSale">For Rent &lpar;per month&rpar;</label>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <label for="baths">No. of Bathrooms &nbsp;<strong>*</strong>&nbsp;</label>
-                <input name="baths" id="baths" type="text" class="form-control" value="1" aria-describedby="invalidBaths" required/>
-                <div id="invalidBaths" class="invalid-feedback">
-                    Please enter the number of bathrooms in this property.
+
+            <br/>
+            <h3>Property Details</h3>
+            <div class="row mb-3">
+                <div class="col">
+                    <!-- Images -->
+                    <label for="listingImages">Upload image&lpar;s&rpar; of property &nbsp;<strong>*</strong>&nbsp;</label>
+                    <input class="form-control is-invalid" type="file" id="listingImages" aria-describedby="invalidImage" accept="image/*" multiple required />
+                    <div id="invalidImage" class="invalid-feedback">
+                        Please upload at least one image.
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- Floor plan -->
+                    <label for="listingImages">Upload floor plan&lpar;s&rpar; of property</label>
+                    <input class="form-control" type="file" id="listingFloorPlan" multiple />
                 </div>
             </div>
-        </div>
-        <div class="mb-3">
-            <label for="features">Features &lpar;point form&rpar;</label>
-            <textarea id="features" class="form-control" rows="5" maxlength="500"></textarea>
-        </div>
-        <div class="mb-3">
-            <label for="description">Description &nbsp;<strong>*</strong>&nbsp;</label>
-            <textarea name="description" id="description" class="form-control" rows="10" maxlength="5000" aria-describedby="invalidDesc" required></textarea>
-            <div id="invalidDesc" class="invalid-feedback">
-                Please provide a description for your property.
+            <div class="row mb-3">
+                <div class="col">
+                    <!-- Area -->
+                    <label for="area">Area &nbsp;<strong>*</strong>&nbsp;</label>
+                    <div class="input-group">
+                        <input name="area" id="area" type="text" class="form-control" value="0" aria-describedby="invalidArea" accept="image/*" required/>
+                        <select class="form-select" id="areaUnits" aria-label="Units">
+                            <option selected>ft&sup2;</option>
+                            <option>m&sup2;</option>
+                            <option>acres</option>
+                        </select>
+                        <div id="invalidArea" class="invalid-feedback">
+                            Please enter a valid area.
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- Bedrooms -->
+                    <label for="beds">No. of Bedrooms &nbsp;<strong>*</strong>&nbsp;</label>
+                    <input name="beds" id="beds" type="text" class="form-control" value="1" aria-describedby="invalidBeds" required/>
+                    <div id="invalidBeds" class="invalid-feedback">
+                        Please enter the number of bedrooms in this property.
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- Bathrooms -->
+                    <label for="baths">No. of Bathrooms &nbsp;<strong>*</strong>&nbsp;</label>
+                    <input name="baths" id="baths" type="text" class="form-control" value="1" aria-describedby="invalidBaths" required/>
+                    <div id="invalidBaths" class="invalid-feedback">
+                        Please enter the number of bathrooms in this property.
+                    </div>
+                </div>
             </div>
-        </div class="text-end">
-        <button id="submitButton" class="btn btn-primary" disabled>Create Listing</button>
-    </form>
+            <div class="mb-3">
+                <!-- Features -->
+                <label for="features">Features &lpar;point form&rpar;</label>
+                <textarea id="features" class="form-control" rows="5" maxlength="500"></textarea>
+            </div>
+            <div class="mb-3">
+                <!-- Description -->
+                <label for="description">Description &nbsp;<strong>*</strong>&nbsp;</label>
+                <textarea name="description" id="description" class="form-control" rows="10" maxlength="5000" aria-describedby="invalidDesc" required></textarea>
+                <div id="invalidDesc" class="invalid-feedback">
+                    Please provide a description for your property.
+                </div>
+            </div>
+            <!-- End of Form Fields -->
+            <button id="submitButton" class="btn btn-primary mb-3" style="float: right;" disabled>Create Listing</button>
+        </form>
+    </div>
 
     <!-- Remove non-numeric characters script -->
     <script>
