@@ -9,6 +9,7 @@
 </head>
 <body>
     <script src="nav-load.js"></script>
+    <script src="store-houses.js"></script>
 
     <div id="listingContainer" style="width: 100%;">
         <div style="background-color: rgb(58, 58, 58);">
@@ -34,11 +35,11 @@
                 </button>
             </div>
         </div>
+        <div id="savedAlert"></div>
         <div class="row mt-3 mb-3 mx-auto" style="width: 100%;">
             <div class="col-sm-1">
                 <button id="savedStar" class="btn float-end">
                     <i id="star" class="fa fa-star-o" style="font-size: 36px;"></i>
-                    <p id="saveMessage" class="text-muted" style="display: none; font-size: 14px;">Saved Property</p>
                 </button>
             </div>
             <div class="col-sm-3">
@@ -114,52 +115,67 @@
         var listingContainer = document.getElementById('listingContainer');
         const id = parseInt(searchParams.get('id'));
 
-        if (isNaN(id) || id < 0 || id > 2) {
+        // fetch houses from local storage
+        var houses = JSON.parse(localStorage.getItem("houses"));
+
+        // show error if house id entered doesn't exist
+        if (isNaN(id) || id < 0 || id > houses.length-1) {
             listingContainer.hidden = true;
-            var h = document.createElement('h2');
-            h.innerText = "Property not found!"
-            document.body.appendChild(h);
+            var center = document.createElement('center');
+            center.className = "mb-3 mt-3";
+            var h = document.createElement('h1');
+            h.innerText = "Sorry! Property not found!"
+            center.appendChild(h);
+            document.body.appendChild(center);
         }
 
         var savedStar = document.getElementById('savedStar');
         var icon = savedStar.querySelector('#star');
-        var saveMessage = document.getElementById('saveMessage');
+        var savedAlert = document.getElementById('savedAlert');
         savedStar.addEventListener('click', function() {
             if (icon.className == 'fa fa-star-o') {
                 icon.className = 'fa fa-star';
-                saveMessage.style.display = 'block'; // Show message
+                // display alert showing the property has been saved
+                savedAlert.innerHTML = `
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <div>Property saved.</div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                `;
+                houses[id].saved = true;
             } else {
                 icon.className = 'fa fa-star-o';
-                saveMessage.style.display = 'none';
+                // clear saved alert if there is one
+                savedAlert.innerHTML = '';
+                houses[id].saved = false;
             }
+
+            // update changes to local storage
+            localStorage.setItem("houses", JSON.stringify(houses));
         });
 
-        fetch('houses.json')
-            .then((response) => response.json())
-            .then((json) => {
-                const house = json.houses[id];
-                const thumbnail = "/images/" + house.thumbnail;
-                const price = house.price.toLocaleString();
-                const address = house.address + ", " + house.city + ", " + house.province;
-                const beds = house.beds;
-                const baths = house.baths;
-                const area = house.area + "&nbsp;" + house.areaUnits;
-                const saved = house.saved;
-                const description = house.description;
-                const features = house.features;
+        const house = houses[id];
+        const thumbnail = "/images/" + house.thumbnail;
+        const price = house.price.toLocaleString();
+        const address = house.address + ", " + house.city + ", " + house.province;
+        const beds = house.beds;
+        const baths = house.baths;
+        const area = house.area + "&nbsp;" + house.areaUnits;
+        const saved = house.saved;
+        const description = house.description;
+        const features = house.features;
 
-                icon.className = saved ? 'fa fa-star' : 'fa fa-star-o';
+        icon.className = saved ? 'fa fa-star' : 'fa fa-star-o';
 
-                document.getElementById('firstImage').setAttribute('src', thumbnail);
-                document.getElementById('price').innerText = "$" + price;
-                document.getElementById('beds').innerHTML = "&nbsp;" + beds;
-                document.getElementById('baths').innerHTML = "&nbsp;" + baths;
-                document.getElementById('area').innerHTML = "&nbsp;" + area;
-                document.getElementById('address').innerText = address;
+        document.getElementById('firstImage').setAttribute('src', thumbnail);
+        document.getElementById('price').innerText = "$" + price;
+        document.getElementById('beds').innerHTML = "&nbsp;" + beds;
+        document.getElementById('baths').innerHTML = "&nbsp;" + baths;
+        document.getElementById('area').innerHTML = "&nbsp;" + area;
+        document.getElementById('address').innerText = address;
 
-                document.getElementById('description').innerText = description;
-                document.getElementById('features').innerText = features;
-            });
+        document.getElementById('description').innerText = description;
+        document.getElementById('features').innerText = features;
     </script>
 </body>
 </html>

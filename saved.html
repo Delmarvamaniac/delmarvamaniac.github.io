@@ -10,70 +10,17 @@
 </head>
 <body>
   <script src="nav-load.js"></script>
+  <script src="store-houses.js"></script>
+
   <center class="mb-3 mt-3">
     <h1>Saved Listings</h1>
   </center>
   <div class="m-5">
-    <div id="listings" class="row">
+    <div id="savedListings" class="row">
     </div>
   </div>
 
-  <!-- Generate Saved Listings -->
-  <script>
-    var listingsRow = document.getElementById('listings');
-    fetch('houses.json')
-      .then((response) => response.json())
-      .then((json) => {
-        for (let i = 0; i < json.houses.length; i++) {
-          const house = json.houses[i];
-
-          if (!house.saved) continue;
-
-          const thumbnail = "/images/" + house.thumbnail;
-          const price = house.price.toLocaleString();
-          const address = house.address + ", " + house.city + ", " + house.province;
-          const beds = house.beds;
-          const baths = house.baths;
-          const area = house.area + " " + house.areaUnits;
-
-          var card = document.createElement('div');
-          card.className = "col-md-4";
-          card.innerHTML = `
-          <div class="card">
-            <img src="${thumbnail}" class="card-img-top" alt="Property Image">
-            <div class="card-body">
-              <h5 class="card-title">$${price}</h5>
-              <p><i class="fa fa-map-marker"></i> ${address}</p>
-              <div class="row">
-                <div class="col-4 text-center">
-                <i class="fa fa-bed"></i> ${beds}
-                <p class="mb-0">Bedrooms</p>
-                </div>
-                <div class="col-4 text-center">
-                <i class="fa fa-bath"></i> ${baths}
-                <p class="mb-0">Bathrooms</p>
-                </div>
-                <div class="col-4 text-center">
-                <i class="fa fa-square-o"></i> ${area}
-                <p class="mb-0">Area</p>
-                </div>
-              </div>
-            </div>
-            <div class="card-footer">
-              <div class="row">
-              <div class="col-12">
-                <!-- View Listing Button that takes up the entire footer -->
-                <a href="/property.html?id=${i}">
-                  <button class="btn btn-secondary w-100">View Listing</button> <!-- w-100 makes it take full width -->
-                </a>
-              </div>
-              </div>
-            </div>
-          </div>
-          `;
-          listingsRow.appendChild(card);
-        }
-      });
-  </script>
+  <!-- Generate saved lisitngs -->
+  <script src="main.js"></script>
 </body>
 </html>

@@ -18,6 +18,7 @@
   </head>
   <body>
     <script src="nav-load.js"></script>
+    <script src="store-houses.js"></script>
 
     <center class="mb-3 mt-3">
       <h1>House World</h1>
@@ -32,13 +33,13 @@
           <!-- Search Input -->
           <!-- City Input -->
           <input type="text" class="form-control me-2" placeholder="City" aria-label="City">
-          
+
           <!-- Min Price Input -->
           <input type="text" class="form-control me-2" placeholder="Min Price" aria-label="Min Price">
-          
+
           <!-- Max Price Input -->
           <input type="text" class="form-control me-2" placeholder="Max Price" aria-label="Max Price">
-        
+
           <!-- Dropdown for Beds -->
           <!-- Dropdown for Beds -->
           <select class="form-select me-2" aria-label="Beds">
@@ -48,7 +49,7 @@
             <option value="3">3</option>
             <option value="4">4+</option>
           </select>
-          
+
           <!-- Dropdown for Baths -->
           <select class="form-select me-2" aria-label="Baths">
             <option value="">Baths</option>
@@ -72,109 +73,13 @@
 
       <!-- Listings -->
       <h3 class="mb-3">Featured Listings</h3>
-      <div id="listings" class="row">
+      <div id="featuredListings" class="row">
       </div>
     </div>
 
-    <!-- Generate Listings and Map + Markers -->
-    <script>
-      var map = L.map('map').setView([43.14049, -79.25282], 9);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
-
-      var listingsRow = document.getElementById('listings');
-      fetch('houses.json')
-        .then((response) => response.json())
-        .then((json) => {
-          for (let i = 0; i < json.houses.length; i++) {
-            const house = json.houses[i];
-            const thumbnail = "/images/" + house.thumbnail;
-            const price = house.price.toLocaleString();
-            const address = house.address + ", " + house.city + ", " + house.province;
-            const beds = house.beds;
-            const baths = house.baths;
-            const area = house.area + " " + house.areaUnits;
-            const coords = house.coordinates;
-
-            const houseMarkerCard = `
-            <div class="card">
-              <img src="${thumbnail}" class="card-img-top" alt="Property Image">
-              <div class="card-body">
-                <h5 class="card-title">$${price}</h5>
-                <p><i class="fa fa-map-marker"></i> ${address}</p>
-                <div class="row">
-                  <div class="col-4 text-center">
-                  <i class="fa fa-bed"></i> ${beds}
-                  </div>
-                  <div class="col-4 text-center">
-                  <i class="fa fa-bath"></i> ${baths}
-                  </div>
-                  <div class="col-4 text-center">
-                  <i class="fa fa-square-o"></i> ${area}
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="row">
-                <div class="col-12">
-                  <!-- View Listing Button that takes up the entire footer -->
-                  <a href="/property.html?id=${i}">
-                    <button class="btn btn-secondary w-100">View Listing</button> <!-- w-100 makes it take full width -->
-                  </a>
-                </div>
-                </div>
-              </div>
-            </div>
-            `;
-
-            const houseCard = `
-            <div class="card">
-              <img src="${thumbnail}" class="card-img-top" alt="Property Image">
-              <div class="card-body">
-                <h5 class="card-title">$${price}</h5>
-                <p><i class="fa fa-map-marker"></i> ${address}</p>
-                <div class="row">
-                  <div class="col-4 text-center">
-                  <i class="fa fa-bed"></i> ${beds}
-                  <p class="mb-0">Bedrooms</p>
-                  </div>
-                  <div class="col-4 text-center">
-                  <i class="fa fa-bath"></i> ${baths}
-                  <p class="mb-0">Bathrooms</p>
-                  </div>
-                  <div class="col-4 text-center">
-                  <i class="fa fa-square-o"></i> ${area}
-                  <p class="mb-0">Area</p>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="row">
-                <div class="col-12">
-                  <!-- View Listing Button that takes up the entire footer -->
-                  <a href="/property.html?id=${i}">
-                    <button class="btn btn-secondary w-100">View Listing</button> <!-- w-100 makes it take full width -->
-                  </a>
-                </div>
-                </div>
-              </div>
-            </div>
-            `;
-
-            var houseMarker = L.marker(coords).addTo(map);
-            houseMarker.bindPopup(houseMarkerCard);
-
-            var card = document.createElement('div');
-            card.className = "col-md-4";
-            card.innerHTML = houseCard;
-            listingsRow.appendChild(card);
-          }
-        });
-    </script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Load Leaflet map and featured listings -->
     <script src="main.js"></script>
   </body>
 </html>
