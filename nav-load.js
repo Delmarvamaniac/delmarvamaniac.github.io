@@ -18,6 +18,9 @@ nav.innerHTML = `
             <a class="nav-link" href="/saved.html">Saved Listings</a>
         </li>
         </ul>
+        <a href="/create-account.html">
+            <button class="btn btn-secondary">Sign Up</button>
+        </a>
         <a href="/login.html">
             <button class="btn btn-secondary">Log In</button>
         </a>
