@@ -25,3 +25,16 @@ nav.innerHTML = `
 </div>
 `;
 document.body.appendChild(nav);
+// 💡 Highlight the active nav link
+const currentPath = window.location.pathname;
+const navLinks = nav.querySelectorAll('.nav-link');
+
+navLinks.forEach(link => {
+  if (link.getAttribute('href') === currentPath) {
+    link.classList.add('active');
+    link.setAttribute('aria-current', 'page');
+  } else {
+    link.classList.remove('active');
+    link.removeAttribute('aria-current');
+  }
+});
