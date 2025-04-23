@@ -30,55 +30,28 @@
           <!-- Search Bar -->
           <div class="d-flex justify-content-between align-items-center p-3 border rounded">
           <!-- Search Input -->
-          <!-- Dropdown for Min Price -->
-          <select class="form-select me-2" aria-label="Max Price">
-            <option selected hidden>City</option>
-            <option value="1">St. Catharines</option>
-            <option value="2">Toronto</option>
-            <option value="3">Ottawa</option>
-            <option value="4">Mississauga</option>
-            <option value="5">Brampton</option>
-            <option value="6">Hamilton</option>
-            <option value="7">London</option>
-            <option value="8">Kitchener</option>
-            <option value="9">Windsor</option>
-            <option value="10">Sudbury</option>
-            <option value="11">Thunder Bay</option>
-            <option value="12">Kingston</option>
-            <option value="13">Barrie</option>
-            <option value="14">Guelph</option>
-            <option value="15">Waterloo</option>
-            <option value="16">Cambridge</option>
-            <option value="17">Oakville</option>
-          </select>
-          <select class="form-select me-2" aria-label="Min Price">
-            <option selected hidden>Min Price</option>
-            <option value="1">$0</option>
-            <option value="2">$100,000</option>
-            <option value="3">$200,000</option>
-            <option value="4">$300,000</option>
-          </select>
-
-          <!-- Dropdown for Max Price -->
-          <select class="form-select me-2" aria-label="Max Price">
-            <option selected hidden>Max Price</option>
-            <option value="1">$500,000</option>
-            <option value="2">$1,000,000</option>
-            <option value="3">$2,000,000</option>
-          </select>
-
+          <!-- City Input -->
+          <input type="text" class="form-control me-2" placeholder="City" aria-label="City">
+          
+          <!-- Min Price Input -->
+          <input type="text" class="form-control me-2" placeholder="Min Price" aria-label="Min Price">
+          
+          <!-- Max Price Input -->
+          <input type="text" class="form-control me-2" placeholder="Max Price" aria-label="Max Price">
+        
+          <!-- Dropdown for Beds -->
           <!-- Dropdown for Beds -->
           <select class="form-select me-2" aria-label="Beds">
-            <option selected hidden>Beds</option>
+            <option value="">Beds</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4+</option>
           </select>
-
+          
           <!-- Dropdown for Baths -->
           <select class="form-select me-2" aria-label="Baths">
-            <option selected hidden>Baths</option>
+            <option value="">Baths</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3+</option>
