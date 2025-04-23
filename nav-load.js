@@ -19,7 +19,7 @@ nav.innerHTML = `
         </li>
         </ul>
         <a href="/create-account.html">
-            <button class="btn btn-secondary">Sign Up</button>
+            <button class="btn btn-primary me-2">Sign Up</button>
         </a>
         <a href="/login.html">
             <button class="btn btn-secondary">Log In</button>
