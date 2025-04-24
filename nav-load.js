@@ -1,4 +1,4 @@
-cvar nav = document.createElement("nav");
+var nav = document.createElement("nav");
 const isLoggedIn = localStorage.getItem("loggedIn") === "true";
 nav.className = "navbar sticky-top navbar-expand-lg navbar-dark bg-dark";
 nav.innerHTML = `
