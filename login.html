@@ -99,6 +99,8 @@
       $login.on('click', function() {
         window.location.href = "/index.html";
         localStorage.setItem("loggedIn", "true");
+        const email = $('#email').val();
+        localStorage.setItem("email", email);
       });
 
       if ($forgotButton) {
