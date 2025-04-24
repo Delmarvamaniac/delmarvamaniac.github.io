@@ -1,4 +1,4 @@
-var nav = document.createElement("nav");
+cvar nav = document.createElement("nav");
 const isLoggedIn = localStorage.getItem("loggedIn") === "true";
 nav.className = "navbar sticky-top navbar-expand-lg navbar-dark bg-dark";
 nav.innerHTML = `
@@ -22,7 +22,7 @@ nav.innerHTML = `
         <div id="nav-buttons">
           ${
             isLoggedIn
-              ? `<a href="/account.html"><button class="btn btn-success">Account</button></a>`
+              ? `<a href="/account.html"><button class="btn btn-secondary">Account</button></a>`
               : `
                 <a href="/create-account.html"><button class="btn btn-primary me-2">Sign Up</button></a>
                 <a href="/login.html"><button class="btn btn-secondary">Log In</button></a>
