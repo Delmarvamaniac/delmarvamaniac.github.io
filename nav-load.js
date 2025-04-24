@@ -1,5 +1,9 @@
 var nav = document.createElement("nav");
 nav.className = "navbar sticky-top navbar-expand-lg navbar-dark bg-dark";
+
+// Check login status (example using localStorage)
+const isLoggedIn = localStorage.getItem("userLoggedIn") === "true";
+
 nav.innerHTML = `
 <div class="container">
     <a class="navbar-brand" href="/index.html">House World</a>
@@ -8,15 +12,15 @@ nav.innerHTML = `
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-            <a class="nav-link" href="/index.html">Buy / Rent</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/new_listing.html">Sell</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/saved.html">Saved Listings</a>
-        </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/index.html">Buy / Rent</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/new_listing.html">Sell</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/saved.html">Saved Listings</a>
+            </li>
         </ul>
         <div class="d-flex">
             ${isLoggedIn ? `
@@ -35,8 +39,10 @@ nav.innerHTML = `
     </div>
 </div>
 `;
+
 document.body.appendChild(nav);
-// 💡 Highlight the active nav link
+
+// Highlight the active nav link
 const currentPath = window.location.pathname;
 const navLinks = nav.querySelectorAll('.nav-link');
 
