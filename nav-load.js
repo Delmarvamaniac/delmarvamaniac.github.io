@@ -1,6 +1,6 @@
 var nav = document.createElement("nav");
 nav.className = "navbar sticky-top navbar-expand-lg navbar-dark bg-dark";
-nav.innerHTML = 
+nav.innerHTML = `
 <div class="container">
     <a class="navbar-brand" href="/index.html">House World</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@ nav.innerHTML =
         </a>
     </div>
 </div>
-;
+`;
 document.body.appendChild(nav);
 // 💡 Highlight the active nav link
 const currentPath = window.location.pathname;
