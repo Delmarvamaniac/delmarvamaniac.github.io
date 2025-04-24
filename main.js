@@ -1,4 +1,4 @@
-const onIndex = (window.location.pathname == "/index.html");    // true if page is index.html, false otherwise (meaning we are on saved.html)
+const onIndex = (window.location.pathname == "/index.html" || window.location.pathname == "/");    // true if page is index.html (homepage), false otherwise (meaning we are on saved.html)
 var listingsRow = onIndex ? document.getElementById("featuredListings") : document.getElementById("savedListings");
 var map = null;
 
