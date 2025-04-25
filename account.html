@@ -26,7 +26,7 @@
       // Logout functionality
       document.getElementById("logout-btn").addEventListener("click", () => {
         // Clear session and redirect to login
-        localStorage.remove("userEmail")
+        localStorage.removeItem("userEmail")
         localStorage.set("loggedIn", "false")
         window.location.href = "login.html";
       });
