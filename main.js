@@ -38,36 +38,60 @@ listingSort.addEventListener("change", (event) => {
 });
 
 function displayListings(sort) {
-    var houses = JSON.parse(localStorage.getItem("houses"));   // Fetch houses from local storage
+    var houses = JSON.parse(localStorage.getItem("houses")); // Fetch houses
 
-    // Sort houses by selected sort order
+    // Get search filter inputs
+    var cityInput = document.getElementById('searchCity').value.trim().toLowerCase();
+    var minPriceInput = parseInt(document.getElementById('searchMinPrice').value.trim());
+    var maxPriceInput = parseInt(document.getElementById('searchMaxPrice').value.trim());
+    var bedsInput = parseInt(document.getElementById('searchBeds').value);
+    var bathsInput = parseInt(document.getElementById('searchBaths').value);
+    
+    // Filter houses based on search criteria
+    houses = houses.filter(house => {
+        let matches = true;
+    
+        if (cityInput && !house.city.toLowerCase().includes(cityInput)) {
+            matches = false;
+        }
+        if (!isNaN(minPriceInput) && house.price < minPriceInput) {
+            matches = false;
+        }
+        if (!isNaN(maxPriceInput) && house.price > maxPriceInput) {
+            matches = false;
+        }
+        if (!isNaN(bedsInput) && house.beds !== bedsInput) {
+            matches = false;
+        }
+        if (!isNaN(bathsInput) && house.baths !== bathsInput) {
+            matches = false;
+        }
+    
+        return matches;
+    });
+
+    // Now sort the filtered houses
     switch (sort) {
-        case "1":   // sort by Recent
-            houses = houses.sort(dateRecent);
-            break;
-        case "2":   // sort by Oldest
-            houses = houses.sort(dateOldest);
-            break;
-        case "3":   // sort by Price (Low to High)
-            houses = houses.sort(priceLowHigh);
-            break;
-        default:    // otherwise, sort by Price (High to Low)
-            houses = houses.sort(priceHighLow);
+        case "1": houses = houses.sort(dateRecent); break;
+        case "2": houses = houses.sort(dateOldest); break;
+        case "3": houses = houses.sort(priceLowHigh); break;
+        default: houses = houses.sort(priceHighLow);
     }
 
-    // Generate listing cards for each house and add them to the page
+    // Clear previous listings
+    listingsRow.innerHTML = "";
+
+    // Display filtered and sorted houses
     for (let i = 0; i < houses.length; i++) {
         const house = houses[i];
-        if (!(onIndex || house.saved)) continue;    // if on saved.html, skip house if it is not saved
+        if (!(onIndex || house.saved)) continue;
 
-        // Make house card and add to listings row
         const card = makeCard(house, house.id, false);
         var cardDiv = document.createElement('div');
         cardDiv.className = "col-md-4";
         cardDiv.innerHTML = card;
         listingsRow.appendChild(cardDiv);
 
-        // Add map markers for listings if on index.html
         if (onIndex) {
             const coords = house.coordinates;
             const markerCard = makeCard(house, house.id, true);
@@ -76,7 +100,6 @@ function displayListings(sort) {
         }
     }
 
-    // if on saved.html, show a message if no listings are currently saved
     if (!onIndex && listingsRow.children.length == 0) {
         let div = document.createElement('div');
         div.className = "mb-3 mt-3 text-center";
@@ -86,6 +109,7 @@ function displayListings(sort) {
         listingsRow.appendChild(div);
     }
 }
+
 
 // Makes a listing card, either plain or for the map
 function makeCard(house, i, marker) {
@@ -121,7 +145,7 @@ function makeCard(house, i, marker) {
             ${!marker ? '<p class="mb-0">Bathrooms</p>' : ''}
             </div>
             <div class="col-4 text-center">
-            <i class="fa fa-square-o"></i> ${area}
+            <i class="fa fa-square"></i> ${area}
             ${!marker ? '<p class="mb-0">Area</p>' : ''}
             </div>
         </div>

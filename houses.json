@@ -18,7 +18,10 @@
             "coordinates": [
                 43.140730, -79.253469
             ],
-            "date": "2025-01-03"
+            "date": "2025-01-03",
+            "SellerPhone": "(555) 987-6543",
+            "SellerName": "Ethan Reynolds",
+            "SellerEmail": "contact@metrosellers.com"
         },
         {
             "id": 1,
@@ -38,7 +41,10 @@
             "coordinates": [
                 43.259208976963855, -79.85015813443876
             ],
-            "date": "2025-03-26"
+            "date": "2025-03-26",
+            "SellerPhone": "(555) 222-3333",
+            "SellerName": "Sophia Carter",
+            "SellerEmail": "sales@smallvilleco.com"
         },
         {
             "id": 2,
@@ -58,7 +64,10 @@
             "coordinates": [
                 42.87022477410172, -79.06127940426205
             ],
-            "date": "2025-02-15"
+            "date": "2025-02-15",
+            "SellerPhone": "(555) 444-5555",
+            "SellerName": "Jackson Hayes",
+            "SellerEmail": "info@gothamgoods.net"
         },
         {
             "id": 3,
@@ -78,7 +87,10 @@
             "coordinates": [
                 42.89524812533122, -79.25316786871043
             ],
-            "date": "2025-01-18"
+            "date": "2025-01-18",
+            "SellerPhone": "(555) 666-7777",
+            "SellerName": "Isabella Moore",
+            "SellerEmail": "support@starcitysupplies.com"
         },
         {
             "id": 4,
@@ -98,7 +110,10 @@
             "coordinates": [
                 42.993939492427465, -79.24373198492825
             ],
-            "date": "2025-02-25"
+            "date": "2025-02-25",
+            "SellerPhone": "(555) 000-1111",
+            "SellerName": "Liam Foster",
+            "SellerEmail": "riverdale.sales@example.org"
         },
         {
             "id": 5,
@@ -118,7 +133,10 @@
             "coordinates": [
                 43.35643173851728, -79.81291469172065
             ],
-            "date": "2025-04-02"
+            "date": "2025-04-02",
+            "SellerPhone": "(555) 777-8888",
+            "SellerName": "Ava Bennett",
+            "SellerEmail": "contact@hillvalleytraders.com"
         }
     ]
 }

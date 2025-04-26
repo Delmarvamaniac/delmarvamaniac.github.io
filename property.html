@@ -36,7 +36,7 @@
             </div>
         </div>
         <div id="savedAlert"></div>
-        <div class="row mt-3 mb-3 mx-auto" style="width: 100%;">
+        <div class="row mt-3 mb-2 mx-auto" style="width: 100%;">
             <div class="col-sm-1">
                 <button id="savedStar" class="btn float-end">
                     <i id="star" class="fa fa-star-o" style="font-size: 36px;"></i>
@@ -45,6 +45,17 @@
             <div class="col-sm-3">
                 <p id="price" class="fs-1 fw-bold">$XXX,XXX</p>
             </div>
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm">
+            </div>
+        </div>
+        <div class="row mt-3 mb-2 mx-auto" style="width: 100%;">
+            <div class="col-sm-1"></div>
             <div class="col-sm-1">
                 <i class="fa fa-bed" style="font-size: 36px;"></i>
                 <p id="beds" class="fs-3 fw-bold" style="display: inline;"></p>
@@ -56,26 +67,43 @@
                 <p>Bathrooms</p>
             </div>
             <div class="col-sm-3">
-                <i class="fa fa-square-o" style="font-size: 36px;"></i>
+                <i class="fa fa-square" style="font-size: 36px;"></i>
                 <p id="area" class="fs-3 fw-bold" style="display: inline;"></p>
                 <p>Area</p>
             </div>
             <div class="col-sm">
-                <button class="btn btn-primary w-100 float-end">Contact Seller</button>
             </div>
         </div>
-        <div class="row mb-5 mx-auto" style="width: 100%;">
+
+        <div class="row mb-2 mx-auto" style="width: 100%;">
             <div class="col"></div>
             <div class="col-sm-5">
                 <p id="address" class="fs-3"></p>
             </div>
-            <div class="col-sm-3">
-                <button class="btn btn-secondary w-100">View Floor Plan</button>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3"></div>
+           
+        </div>
+
+        <div class="row mb-5 mx-auto" style="width: 100%;">
+            <div class="col"></div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-primary w-100 float-end" data-bs-toggle="modal" data-bs-target="#contactSellerModal">
+                    <i class="fa fa-address-book-o me-3" aria-hidden="true"></i>Contact Seller
+                  </button>            </div>
+            <div class="col-sm-2">
+                <button class="btn btn-outline-secondary w-100 float-end" data-bs-toggle="modal" data-bs-target="#FloorPlanModal">
+                    <i class="fa fa-map-o me-3" aria-hidden="true"></i>View Floor Plan/s
+                  </button>
             </div>
-            <div class="col-sm-3">
-                <button class="btn btn-outline-secondary w-100 float-end">Schedule Tour</button>
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-5">
             </div>
         </div>
+
+
+        
         <div class="row mb-5 mx-auto" style="width: 100%">
             <div class="col"></div>
             <div class="col-sm-8">
@@ -85,35 +113,167 @@
             </div>
             <div class="col-sm-3">
                 <h3 class="text-center">Features</h3>
-                <p id="features" class="fs-5 fst-italic">Features</p>
+                <p id="features" class="fs-5  text-center">Features</p>
             </div>
         </div>
-        <div class="row mb-3 mx-auto" style="width: 75%;">
-            <div class="col-sm-3 w-100" style="background-color: darkgrey; border-radius: 10px;">
+        <div class="row mb-3 mx-auto" style="width: 82%;">
+            <div class="col-sm-3 w-100" style="background-color: rgb(231, 231, 231); border-radius: 10px;">
                 <div class="row mx-auto mt-3 text-center">
                     <div class="col">
                         <p>Date Posted</p>
-                        <p class="fs-3" id="datePosted"></p>
+                        <p class="fs-5" id="datePosted"></p>
                     </div>
                     <div class="col">
                         <p>Seller Name</p>
-                        <p class="fs-3">John Doe</p>
+                        <p class="fs-5">John Doe</p>
                     </div>
                     <div class="col">
                         <p>Seller Email</p>
-                        <p class="fs-3">johndoe@example.com</p>
+                        <p class="fs-5">johndoe@example.com</p>
                     </div>
                     <div class="col">
                         <p>Seller Phone</p>
-                        <p class="fs-3">(123)-456-7890</p>
+                        <p class="fs-5">(123)-456-7890</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Begin Modals -->
 
+    <div class="modal fade" id="FloorPlanModal" tabindex="-1" aria-labelledby="FloorPlanModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered"> <!-- modal-lg for bigger image -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="FloorPlanModalLabel">Floor Plan/s</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+              <img src="/images/floorplan.jpg" alt="Floor Plan" class="img-fluid">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+    <div class="modal fade" id="contactSellerModal" tabindex="-1" aria-labelledby="contactSellerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- large and centered -->
+            <div class="modal-content">
+        
+              <div class="modal-header">
+                <h5 class="modal-title" id="contactSellerModalLabel">Contact Seller</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+        
+              <div class="modal-body">
+                <form>
+                  <!-- Salesperson Info (Static) -->
+                  <div class="mb-4">
+                    <h5>To: <strong><div id="SellerName">JOHN FRED DOE</div></strong></h5>
+                    <h6>Phone: <div id="SellerPhone">905-517-7250</div></h6>
+                    <h6>Email: <div id="SellerEmail">email@domain.ca</div></h6>
+                  </div>
+              
+                  <!-- First Name and Last Name (Same Row) -->
+                  <div class="row mb-3">
+                    <div class="col">
+                      <label for="firstName" class="form-label">First Name</label>
+                      <input type="text" class="form-control" id="firstName" placeholder="" required>
+                    </div>
+                    <div class="col">
+                      <label for="lastName" class="form-label">Last Name</label>
+                      <input type="text" class="form-control" id="lastName" placeholder="" required>
+                    </div>
+                  </div>
+              
+                  <!-- Preferred Contact Method -->
+                  <div class="mb-3">
+                    <label class="form-label">Preferred Method of Contact</label>
+                    <div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="contactMethod" id="contactEmail" value="Email" required>
+                        <label class="form-check-label" for="contactEmail">Email</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="contactMethod" id="contactPhone" value="Phone">
+                        <label class="form-check-label" for="contactPhone">Phone</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="contactMethod" id="contactText" value="Text">
+                        <label class="form-check-label" for="contactText">Text</label>
+                      </div>
+                    </div>
+                  </div>
+              
+                  <!-- Email and Phone Number (Same Row) -->
+                  <div class="row mb-3">
+                    <div class="col">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="email" placeholder="" required>
+                    </div>
+                    <div class="col">
+                      <label for="phone" class="form-label">Phone Number</label>
+                      <input type="tel" class="form-control" id="phone" placeholder="" required>
+                    </div>
+                  </div>
+              
+                  <!-- Message -->
+                  <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="EmailWAddress" rows="4" required>I would appreciate more information about</textarea>
+                  </div>
+              
+                  <!-- Booking a Showing -->
+                  <div class="mb-3">
+                    <div class="form-check mb-2">
+                      <input class="form-check-input" type="checkbox" id="bookShowingCheckbox">
+                      <label class="form-check-label" for="bookShowingCheckbox">
+                        I wish to book a showing
+                      </label>
+                    </div>
+              
+                    <div id="ShowingDateTime" style="display: none;">
+                      <div class="row">
+                        <div class="col">
+                          <input type="date" class="form-control mb-2" placeholder="">
+                        </div>
+                        <div class="col">
+                          <input type="time" class="form-control mb-2" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              
+                  <!-- Submit Button -->
+                  <button type="button" class="btn btn-primary w-100" data-bs-dismiss="modal">Send</button>
+                </form>
+              </div>
+              
+        
+            </div>
+          </div>
+    </div>
+
+    <!-- End Modals -->
     <!-- Load house data -->
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const checkbox = document.getElementById('bookShowingCheckbox');
+        const showingFields = document.getElementById('ShowingDateTime');
+
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+            showingFields.style.display = 'block';
+            } else {
+            showingFields.style.display = 'none';
+            }
+        });
+        });
+
         const url = new URL(window.location.href);
         const searchParams = new URLSearchParams(url.search);
         var listingContainer = document.getElementById('listingContainer');
@@ -170,8 +330,13 @@
         const features = house.features;
         const forSale = house.forSale;
         const date = house.date;
+        const SellerName = house.SellerName;
+        const SellerEmail = house.SellerEmail;
+        const SellerPhone = house.SellerPhone;
 
         icon.className = saved ? 'fa fa-star' : 'fa fa-star-o';
+
+        document.getElementById('EmailWAddress').value = `I would appreciate more information about ${address}.`;
 
         document.getElementById('firstImage').setAttribute('src', thumbnail);
         document.getElementById('price').innerText = "$" + price + (!forSale ? "/month" : "");
@@ -179,6 +344,10 @@
         document.getElementById('baths').innerHTML = "&nbsp;" + baths;
         document.getElementById('area').innerHTML = "&nbsp;" + area;
         document.getElementById('address').innerText = address;
+
+        document.getElementById('SellerName').innerText = SellerName;
+        document.getElementById('SellerEmail').innerText = SellerEmail;
+        document.getElementById('SellerPhone').innerText = SellerPhone;
 
         document.getElementById('description').innerText = description;
         document.getElementById('features').innerText = features;
