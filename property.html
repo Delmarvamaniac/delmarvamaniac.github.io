@@ -92,6 +92,10 @@
             <div class="col-sm-3 w-100" style="background-color: darkgrey; border-radius: 10px;">
                 <div class="row mx-auto mt-3 text-center">
                     <div class="col">
+                        <p>Date Posted</p>
+                        <p class="fs-3" id="datePosted"></p>
+                    </div>
+                    <div class="col">
                         <p>Seller Name</p>
                         <p class="fs-3">John Doe</p>
                     </div>
@@ -164,11 +168,13 @@
         const saved = house.saved;
         const description = house.description;
         const features = house.features;
+        const forSale = house.forSale;
+        const date = house.date;
 
         icon.className = saved ? 'fa fa-star' : 'fa fa-star-o';
 
         document.getElementById('firstImage').setAttribute('src', thumbnail);
-        document.getElementById('price').innerText = "$" + price;
+        document.getElementById('price').innerText = "$" + price + (!forSale ? "/month" : "");
         document.getElementById('beds').innerHTML = "&nbsp;" + beds;
         document.getElementById('baths').innerHTML = "&nbsp;" + baths;
         document.getElementById('area').innerHTML = "&nbsp;" + area;
@@ -176,6 +182,7 @@
 
         document.getElementById('description').innerText = description;
         document.getElementById('features').innerText = features;
+        document.getElementById('datePosted').innerText = date;
     </script>
 </body>
 </html>

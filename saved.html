@@ -16,6 +16,15 @@
     <h1>Saved Listings</h1>
   </center>
   <div class="m-5">
+    <div class="mb-3">
+      <label for="listingSort">Sort By:</label>
+      <select name="listingSort" id="listingSort" aria-label="Sort By">
+        <option value="1">Recent</option>
+        <option value="2">Oldest</option>
+        <option value="3">Price &lpar;Low to High&rpar;</option>
+        <option value="4">Price &lpar;High to Low&rpar;</option>
+      </select>
+    </div>
     <div id="savedListings" class="row">
     </div>
   </div>

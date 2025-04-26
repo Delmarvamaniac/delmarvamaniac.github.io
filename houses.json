@@ -1,6 +1,7 @@
 {
     "houses": [
         {
+            "id": 0,
             "address": "3 Whitworth Street",
             "city": "St. Catharines",
             "province": "ON",
@@ -16,9 +17,11 @@
             "saved": true,
             "coordinates": [
                 43.140730, -79.253469
-            ]
+            ],
+            "date": "2025-01-03"
         },
         {
+            "id": 1,
             "address": "88 Oak Avenue",
             "city": "Hamilton",
             "province": "ON",
@@ -34,9 +37,11 @@
             "saved": true,
             "coordinates": [
                 43.259208976963855, -79.85015813443876
-            ]
+            ],
+            "date": "2025-03-26"
         },
         {
+            "id": 2,
             "address": "196 Derby Road",
             "city": "Crystal Beach",
             "province": "ON",
@@ -52,7 +57,68 @@
             "saved": false,
             "coordinates": [
                 42.87022477410172, -79.06127940426205
-            ]
+            ],
+            "date": "2025-02-15"
+        },
+        {
+            "id": 3,
+            "address": "42 Erie Street",
+            "city": "Port Colbourne",
+            "province": "ON",
+            "price": 1500,
+            "forSale": false,
+            "area": 2300,
+            "areaUnits": "ft&sup2;",
+            "beds": 2,
+            "baths": 1,
+            "features": "- Gas Fireplace\n- Garage\n- Nearby Bus Stop",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget nisl sapien. Donec ex lectus, consectetur eu erat at, commodo tincidunt elit. Nulla bibendum euismod sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum, mauris at sagittis sagittis, nunc lorem auctor erat, quis interdum enim nisi eget elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris accumsan eu ligula sit amet consectetur. Ut arcu felis, egestas a justo in, volutpat ultricies ligula. Morbi sed urna elit. Etiam ut nulla auctor, pulvinar tortor et, iaculis mauris. Etiam eu imperdiet elit. Donec mauris ipsum, fringilla non felis bibendum, fermentum maximus lorem. Nam tincidunt porttitor dolor eu lobortis. Etiam vehicula nunc et ligula feugiat euismod. Phasellus malesuada, nibh sit amet blandit lobortis, leo arcu euismod ex, sed consequat sapien massa nec massa. Morbi nunc nibh, sollicitudin vitae eros et, consequat lacinia lorem.\nPhasellus commodo leo vel ullamcorper vehicula. Nunc ullamcorper dignissim tristique. Donec ultricies nisl non felis lacinia semper at ut ex. Curabitur ante diam, condimentum a feugiat eget, laoreet a mi. Maecenas finibus, est quis vestibulum pellentesque, ligula purus ullamcorper arcu, id maximus sapien ante vitae massa. Sed vel vehicula sapien. Pellentesque ut pulvinar justo. Pellentesque nec est sem. Etiam mattis risus a libero egestas, sit amet ullamcorper libero commodo. Sed at condimentum dolor. Sed vel porttitor libero. Nullam non dignissim nisi. Nullam pellentesque odio sit amet dui hendrerit varius.\nPellentesque lobortis nisl a semper imperdiet. Curabitur in dignissim lacus. Donec luctus feugiat dolor et scelerisque. In luctus ex fermentum lacinia dignissim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec commodo suscipit leo vel bibendum. Phasellus fringilla blandit elit sed commodo. Phasellus aliquet eu turpis non maximus. Maecenas sit amet justo placerat, molestie leo at, ornare dolor. Donec lobortis mi quis hendrerit suscipit. Aenean vel ornare massa, in dignissim quam. Quisque sed metus nisl. Morbi consectetur ante ac velit tempus varius. Vestibulum aliquet velit condimentum massa scelerisque, et dapibus dui consequat.",
+            "thumbnail": "placeholderproperty4.jpg",
+            "saved": false,
+            "coordinates": [
+                42.89524812533122, -79.25316786871043
+            ],
+            "date": "2025-01-18"
+        },
+        {
+            "id": 4,
+            "address": "84 Dorothy Street",
+            "city": "Welland",
+            "province": "ON",
+            "price": 650000,
+            "forSale": true,
+            "area": 1400,
+            "areaUnits": "ft&sup2;",
+            "beds": 2,
+            "baths": 2,
+            "features": "- Baseboard heating\n- Nearby park\n- Downtown",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget nisl sapien. Donec ex lectus, consectetur eu erat at, commodo tincidunt elit. Nulla bibendum euismod sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum, mauris at sagittis sagittis, nunc lorem auctor erat, quis interdum enim nisi eget elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris accumsan eu ligula sit amet consectetur. Ut arcu felis, egestas a justo in, volutpat ultricies ligula. Morbi sed urna elit. Etiam ut nulla auctor, pulvinar tortor et, iaculis mauris. Etiam eu imperdiet elit. Donec mauris ipsum, fringilla non felis bibendum, fermentum maximus lorem. Nam tincidunt porttitor dolor eu lobortis. Etiam vehicula nunc et ligula feugiat euismod. Phasellus malesuada, nibh sit amet blandit lobortis, leo arcu euismod ex, sed consequat sapien massa nec massa. Morbi nunc nibh, sollicitudin vitae eros et, consequat lacinia lorem.\nPhasellus commodo leo vel ullamcorper vehicula. Nunc ullamcorper dignissim tristique. Donec ultricies nisl non felis lacinia semper at ut ex. Curabitur ante diam, condimentum a feugiat eget, laoreet a mi. Maecenas finibus, est quis vestibulum pellentesque, ligula purus ullamcorper arcu, id maximus sapien ante vitae massa. Sed vel vehicula sapien. Pellentesque ut pulvinar justo. Pellentesque nec est sem. Etiam mattis risus a libero egestas, sit amet ullamcorper libero commodo. Sed at condimentum dolor. Sed vel porttitor libero. Nullam non dignissim nisi. Nullam pellentesque odio sit amet dui hendrerit varius.\nPellentesque lobortis nisl a semper imperdiet. Curabitur in dignissim lacus. Donec luctus feugiat dolor et scelerisque. In luctus ex fermentum lacinia dignissim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec commodo suscipit leo vel bibendum. Phasellus fringilla blandit elit sed commodo. Phasellus aliquet eu turpis non maximus. Maecenas sit amet justo placerat, molestie leo at, ornare dolor. Donec lobortis mi quis hendrerit suscipit. Aenean vel ornare massa, in dignissim quam. Quisque sed metus nisl. Morbi consectetur ante ac velit tempus varius. Vestibulum aliquet velit condimentum massa scelerisque, et dapibus dui consequat.",
+            "thumbnail": "placeholderproperty5.jpg",
+            "saved": false,
+            "coordinates": [
+                42.993939492427465, -79.24373198492825
+            ],
+            "date": "2025-02-25"
+        },
+        {
+            "id": 5,
+            "address": "1240 Nottingham Avenue",
+            "city": "Burlington",
+            "province": "ON",
+            "price": 2500,
+            "forSale": false,
+            "area": 2100,
+            "areaUnits": "ft&sup2;",
+            "beds": 2,
+            "baths": 1,
+            "features": "- AC\n- Nearby park\n- Downtown",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget nisl sapien. Donec ex lectus, consectetur eu erat at, commodo tincidunt elit. Nulla bibendum euismod sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum, mauris at sagittis sagittis, nunc lorem auctor erat, quis interdum enim nisi eget elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris accumsan eu ligula sit amet consectetur. Ut arcu felis, egestas a justo in, volutpat ultricies ligula. Morbi sed urna elit. Etiam ut nulla auctor, pulvinar tortor et, iaculis mauris. Etiam eu imperdiet elit. Donec mauris ipsum, fringilla non felis bibendum, fermentum maximus lorem. Nam tincidunt porttitor dolor eu lobortis. Etiam vehicula nunc et ligula feugiat euismod. Phasellus malesuada, nibh sit amet blandit lobortis, leo arcu euismod ex, sed consequat sapien massa nec massa. Morbi nunc nibh, sollicitudin vitae eros et, consequat lacinia lorem.\nPhasellus commodo leo vel ullamcorper vehicula. Nunc ullamcorper dignissim tristique. Donec ultricies nisl non felis lacinia semper at ut ex. Curabitur ante diam, condimentum a feugiat eget, laoreet a mi. Maecenas finibus, est quis vestibulum pellentesque, ligula purus ullamcorper arcu, id maximus sapien ante vitae massa. Sed vel vehicula sapien. Pellentesque ut pulvinar justo. Pellentesque nec est sem. Etiam mattis risus a libero egestas, sit amet ullamcorper libero commodo. Sed at condimentum dolor. Sed vel porttitor libero. Nullam non dignissim nisi. Nullam pellentesque odio sit amet dui hendrerit varius.\nPellentesque lobortis nisl a semper imperdiet. Curabitur in dignissim lacus. Donec luctus feugiat dolor et scelerisque. In luctus ex fermentum lacinia dignissim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec commodo suscipit leo vel bibendum. Phasellus fringilla blandit elit sed commodo. Phasellus aliquet eu turpis non maximus. Maecenas sit amet justo placerat, molestie leo at, ornare dolor. Donec lobortis mi quis hendrerit suscipit. Aenean vel ornare massa, in dignissim quam. Quisque sed metus nisl. Morbi consectetur ante ac velit tempus varius. Vestibulum aliquet velit condimentum massa scelerisque, et dapibus dui consequat.",
+            "thumbnail": "placeholderproperty6.jpg",
+            "saved": false,
+            "coordinates": [
+                43.35643173851728, -79.81291469172065
+            ],
+            "date": "2025-04-02"
         }
     ]
 }
