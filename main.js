@@ -1,6 +1,7 @@
 const onIndex = (window.location.pathname == "/index.html" || window.location.pathname == "/");    // true if page is index.html (homepage), false otherwise (meaning we are on saved.html)
 var listingsRow = onIndex ? document.getElementById("featuredListings") : document.getElementById("savedListings");
 var map = null;
+var markerGroup = null;
 var listingSort = document.getElementById("listingSort");
 
 // Init Leaflet map if on index.html
@@ -10,6 +11,7 @@ if (onIndex) {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+    markerGroup = L.layerGroup().addTo(map);
 }
 
 const priceLowHigh = (a, b) => {
@@ -81,6 +83,9 @@ function displayListings(sort) {
     // Clear previous listings
     listingsRow.innerHTML = "";
 
+    // Clear previous map markers
+    if (onIndex) markerGroup.clearLayers();
+
     // Display filtered and sorted houses
     for (let i = 0; i < houses.length; i++) {
         const house = houses[i];
@@ -95,7 +100,7 @@ function displayListings(sort) {
         if (onIndex) {
             const coords = house.coordinates;
             const markerCard = makeCard(house, house.id, true);
-            var houseMarker = L.marker(coords).addTo(map);
+            var houseMarker = L.marker(coords).addTo(markerGroup);
             houseMarker.bindPopup(markerCard);
         }
     }
