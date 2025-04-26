@@ -46,11 +46,11 @@ function displayListings(sort) {
     var maxPriceInput = parseInt(document.getElementById('searchMaxPrice').value.trim());
     var bedsInput = parseInt(document.getElementById('searchBeds').value);
     var bathsInput = parseInt(document.getElementById('searchBaths').value);
-    
+
     // Filter houses based on search criteria
     houses = houses.filter(house => {
         let matches = true;
-    
+
         if (cityInput && !house.city.toLowerCase().includes(cityInput)) {
             matches = false;
         }
@@ -66,7 +66,7 @@ function displayListings(sort) {
         if (!isNaN(bathsInput) && house.baths !== bathsInput) {
             matches = false;
         }
-    
+
         return matches;
     });
 
@@ -100,11 +100,11 @@ function displayListings(sort) {
         }
     }
 
-    if (!onIndex && listingsRow.children.length == 0) {
+    if (listingsRow.children.length == 0) {
         let div = document.createElement('div');
         div.className = "mb-3 mt-3 text-center";
         let h = document.createElement('h3');
-        h.innerText = "You have no saved listings."
+        h.innerText = onIndex ? "No listings match your search filters." : "You have no saved listings."
         div.appendChild(h);
         listingsRow.appendChild(div);
     }

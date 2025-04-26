@@ -34,12 +34,16 @@
           <!-- City Input -->
           <input type="text" id="searchCity" class="form-control me-2" placeholder="City" aria-label="City">
 
-          <span class="input-group-text">CAD$</span>
-          <input type="text" id="searchMinPrice" class="form-control me-2" placeholder="Min Price" aria-label="Min Price">
-          
-          <span class="input-group-text">CAD$</span>
-          <input type="text" id="searchMaxPrice" class="form-control me-2" placeholder="Max Price" aria-label="Max Price">
-          
+          <div class="input-group">
+            <span class="input-group-text">CAD$</span>
+            <input type="text" id="searchMinPrice" class="form-control me-2" placeholder="Min Price" aria-label="Min Price">
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-text">CAD$</span>
+            <input type="text" id="searchMaxPrice" class="form-control me-2" placeholder="Max Price" aria-label="Max Price">
+          </div>
+
           <div class="input-group">
             <label class="input-group-text" for=""><i class="fa fa-bed" aria-hidden="true"></i></label>
             <select id="searchBeds" class="form-select me-2" aria-label="Filter select">
@@ -47,12 +51,13 @@
               <option value="Any">Any</option>
               <option value="1">1</option>
               <option value="2">2</option>
+              <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
               <option value="6">6</option>
             </select>
           </div>
-          
+
           <div class="input-group">
             <label class="input-group-text" for=""><i class="fa fa-bath" aria-hidden="true"></i></label>
             <select id="searchBaths" class="form-select me-2" aria-label="Filter select">
@@ -66,11 +71,11 @@
               <option value="6">6</option>
             </select>
           </div>
-          
+
           <!-- Search Button -->
           <button class="btn btn-primary" id="searchButton">
             <i class="fa fa-search"></i> Search
-          </button>          
+          </button>
           </div>
         </div>
       </div>
@@ -102,7 +107,7 @@
     <script>
     document.getElementById('searchButton').addEventListener('click', () => {
       var listingSort = document.getElementById("listingSort");
-        displayListings(listingSort.value); 
+        displayListings(listingSort.value);
     });
     </script>
   </body>
