@@ -67,6 +67,7 @@
                     <div class="input-group">
                         <span class="input-group-text">CAD$</span>
                         <input name="price" id="price" type="text" class="form-control" value="0" aria-describedby="invalidPrice" required />
+                        <span class="input-group-text" id="perMonth" hidden>/month</span>
                         <div id="invalidPrice" class="invalid-feedback">
                             Please enter a valid price.
                         </div>
@@ -168,6 +169,26 @@
                 });
             });
         });
+    </script>
+
+    <!-- Show "/month" label on price if For Rent is selected -->
+    <script>
+        const forRent = document.getElementById("forRent");
+        const forSale = document.getElementById("forSale");
+        const perMonth = document.getElementById("perMonth");
+
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log(forSale.checked);
+            perMonth.hidden = forSale.checked;
+        });
+
+        forRent.addEventListener("change", function() {
+            perMonth.hidden = false;
+        });
+
+        forSale.addEventListener("change", function() {
+            perMonth.hidden = true;
+        })
     </script>
 
     <!-- Form validation script -->
