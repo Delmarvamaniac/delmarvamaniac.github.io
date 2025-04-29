@@ -42,37 +42,39 @@ listingSort.addEventListener("change", (event) => {
 function displayListings(sort) {
     var houses = JSON.parse(localStorage.getItem("houses")); // Fetch houses
 
-    // Get search filter inputs
-    var cityInput = document.getElementById('searchCity').value.trim().toLowerCase();
-    var minPriceInput = parseInt(document.getElementById('searchMinPrice').value.trim());
-    var maxPriceInput = parseInt(document.getElementById('searchMaxPrice').value.trim());
-    var bedsInput = parseInt(document.getElementById('searchBeds').value);
-    var bathsInput = parseInt(document.getElementById('searchBaths').value);
+    if (onIndex) {
+        // Get search filter inputs
+        var cityInput = document.getElementById('searchCity').value.trim().toLowerCase();
+        var minPriceInput = parseInt(document.getElementById('searchMinPrice').value.trim());
+        var maxPriceInput = parseInt(document.getElementById('searchMaxPrice').value.trim());
+        var bedsInput = parseInt(document.getElementById('searchBeds').value);
+        var bathsInput = parseInt(document.getElementById('searchBaths').value);
 
-    // Filter houses based on search criteria
-    houses = houses.filter(house => {
-        let matches = true;
+        // Filter houses based on search criteria
+        houses = houses.filter(house => {
+            let matches = true;
 
-        if (cityInput && !house.city.toLowerCase().includes(cityInput)) {
-            matches = false;
-        }
-        if (!isNaN(minPriceInput) && house.price < minPriceInput) {
-            matches = false;
-        }
-        if (!isNaN(maxPriceInput) && house.price > maxPriceInput) {
-            matches = false;
-        }
-        if (!isNaN(bedsInput) && house.beds !== bedsInput) {
-            matches = false;
-        }
-        if (!isNaN(bathsInput) && house.baths !== bathsInput) {
-            matches = false;
-        }
+            if (cityInput && !house.city.toLowerCase().includes(cityInput)) {
+                matches = false;
+            }
+            if (!isNaN(minPriceInput) && house.price < minPriceInput) {
+                matches = false;
+            }
+            if (!isNaN(maxPriceInput) && house.price > maxPriceInput) {
+                matches = false;
+            }
+            if (!isNaN(bedsInput) && house.beds !== bedsInput) {
+                matches = false;
+            }
+            if (!isNaN(bathsInput) && house.baths !== bathsInput) {
+                matches = false;
+            }
 
-        return matches;
-    });
+            return matches;
+        });
+    }
 
-    // Now sort the filtered houses
+    // Now sort the houses
     switch (sort) {
         case "1": houses = houses.sort(dateRecent); break;
         case "2": houses = houses.sort(dateOldest); break;
